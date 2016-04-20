@@ -160,4 +160,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[connection signal="pressed" from="botones/s_suma/suma" to="." method="_on_suma_pressed"]
+
+[connection signal="pressed" from="botones/s_suma/suma" to="botones" method="_on_suma_pressed"]
+
 

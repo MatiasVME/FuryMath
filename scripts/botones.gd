@@ -9,7 +9,7 @@ var division = null
 	
 func _process(delta):
 	rotation += 1 * delta
-	suma.set_rotate(rotation)
+	suma.set_rot(rotation)
 	resta.set_rot(rotation)
 	multiplicacion.set_rot(rotation)
 	division.set_rot(rotation)
@@ -21,3 +21,5 @@ func _ready():
 	multiplicacion = get_node("s_multiplicacion")
 	division = get_node("s_division")
 
+func _on_suma_pressed():
+	get_tree().change_scene("res://scenes/game_screen.tscn")

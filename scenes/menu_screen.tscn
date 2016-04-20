@@ -76,4 +76,12 @@ toggle_mode = false
 textures/normal = ExtResource( 9 )
 textures/pressed = ExtResource( 10 )
 
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="StatsButton" to="." method="_on_StatsButton_pressed"]
+
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+
 
