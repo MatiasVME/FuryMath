@@ -1,73 +1,79 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/menu_screen.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/buttons/start-button.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/buttons/start-toggled-button.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/buttons/stats-button.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/buttons/stats-toggled-button.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/buttons/credits-button.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/buttons/credits-toggled-button.png" type="Texture" id=7]
-[ext_resource path="res://assets/images/buttons/exit-button.png" type="Texture" id=8]
-[ext_resource path="res://assets/images/buttons/exit-toggled-button.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/images/buttons/start-button.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/buttons/start-toggled-button.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/buttons/stats-button.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/buttons/stats-toggled-button.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/buttons/credits-button.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/buttons/credits-toggled-button.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/buttons/exit-button.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/buttons/exit-toggled-button.png" type="Texture" id=10]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
+[node name="bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 180.716, 319.688 )
+texture = ExtResource( 2 )
+
 [node name="StartButton" type="TextureButton" parent="."]
 
-margin/left = 79.0
-margin/top = 111.0
-margin/right = 281.0
-margin/bottom = 164.0
+margin/left = 80.0
+margin/top = 83.0
+margin/right = 282.0
+margin/bottom = 136.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
 
 [node name="StatsButton" type="TextureButton" parent="."]
 
-margin/left = 79.0
-margin/top = 251.0
-margin/right = 281.0
-margin/bottom = 304.0
+margin/left = 80.0
+margin/top = 214.0
+margin/right = 282.0
+margin/bottom = 267.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 4 )
-textures/pressed = ExtResource( 5 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 
-margin/left = 81.0
-margin/top = 397.0
-margin/right = 283.0
-margin/bottom = 450.0
+margin/left = 80.0
+margin/top = 346.0
+margin/right = 282.0
+margin/bottom = 399.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
 
 [node name="ExitButton" type="TextureButton" parent="."]
 
-margin/left = 79.0
-margin/top = 515.0
-margin/right = 281.0
-margin/bottom = 568.0
+margin/left = 80.0
+margin/top = 487.0
+margin/right = 282.0
+margin/bottom = 540.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
 
 
