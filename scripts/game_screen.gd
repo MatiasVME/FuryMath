@@ -75,7 +75,7 @@ func alternative_generator():
 		alt[1] = round(alt[1])
 	while (alt[2] == 0 || alt[2] == get_result() || alt[2] == alt[1] || alt[2] == alt[0]):
 		alt[2] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
-		alt[1] = round(alt[1])
+		alt[2] = round(alt[2])
 
 func reset_alternatives():
 	alt = [0, 0, 0]
