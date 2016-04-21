@@ -12,12 +12,21 @@ var num_question = 0
 var next_question = false
 var haze = 1
 
+# Button wrong alternatives
+var alt = [0, 0, 0]
+var alt_index = 0
+
 func _process(delta):
 	if (next_question):
 		reset_values()
 		show_values()
 		set_button_values()
 		next_question = false
+	
+	if (incorrect_answer == 3):
+		get_tree().change_scene("res://scenes/lost_screen.tscn")
+	elif (num_question == 10):
+		get_tree().change_scene("res://scenes/win_screen.tscn")
 	
 	haze -= 1 * delta
 	get_node("reward").set_opacity(haze)
@@ -40,6 +49,9 @@ func get_result():
 func set_button_values():
 	correct_button = int(rand_range(1, 5))
 	
+	reset_alternatives()
+	alternative_generator()
+	
 	value_button_generator(correct_button, 1)
 	value_button_generator(correct_button, 2)
 	value_button_generator(correct_button, 3)
@@ -49,10 +61,21 @@ func value_button_generator(correct_button, num_button):
 	if (correct_button == num_button):
 		get_node("VBoxContainer/opt" + str(num_button)).set_text(str(get_result()))
 	else:
-		var value = rand_range(1,10)
-		while (value == get_result()):
-			value = rand_range(1,10)
-		get_node("VBoxContainer/opt" + str(num_button)).set_text(str(int(value)))
+		get_node("VBoxContainer/opt" + str(num_button)).set_text(str(int(alt[alt_index])))
+		alt_index += 1
+
+func alternative_generator():
+	var num_nearness = 5
+	while (alt[0] == 0 || alt[0] == get_result()):
+		alt[0] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
+	while (alt[1] == 0 || alt[1] == get_result() || alt[1] == alt[0]):
+		alt[1] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
+	while (alt[2] == 0 || alt[2] == get_result() || alt[2] == alt[1] || alt[2] == alt[0]):
+		alt[2] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
+	
+func reset_alternatives():
+	alt = [0, 0, 0]
+	alt_index = 0
 
 func answer_button(num_button):
 	if (correct_button == num_button):
