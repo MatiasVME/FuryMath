@@ -25,7 +25,6 @@ size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.890625, 0.887907, 0.821045, 1 )
 custom_colors/font_color_shadow = Color( 0.335938, 0.212585, 0.212585, 1 )
-text = "21+12"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -97,7 +96,7 @@ flat = false
 margin/left = 1.0
 margin/top = 339.0
 margin/right = 181.0
-margin/bottom = 375.0
+margin/bottom = 376.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -105,10 +104,18 @@ size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.179443, 0.264492, 0.957031, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Great!!"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="pressed" from="VBoxContainer/opt1" to="." method="_on_opt1_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/opt2" to="." method="_on_opt2_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/opt3" to="." method="_on_opt3_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/opt4" to="." method="_on_opt4_pressed"]
 
 
