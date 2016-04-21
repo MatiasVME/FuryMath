@@ -66,13 +66,17 @@ func value_button_generator(correct_button, num_button):
 
 func alternative_generator():
 	var num_nearness = 5
+
 	while (alt[0] == 0 || alt[0] == get_result()):
 		alt[0] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
+		alt[0] = round(alt[0])
 	while (alt[1] == 0 || alt[1] == get_result() || alt[1] == alt[0]):
 		alt[1] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
+		alt[1] = round(alt[1])
 	while (alt[2] == 0 || alt[2] == get_result() || alt[2] == alt[1] || alt[2] == alt[0]):
 		alt[2] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
-	
+		alt[1] = round(alt[1])
+
 func reset_alternatives():
 	alt = [0, 0, 0]
 	alt_index = 0
