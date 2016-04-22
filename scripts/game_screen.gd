@@ -6,7 +6,6 @@ var num2
 
 var correct_button = 0
 var correct_answer = 0
-var lives = 3
 var num_question = 0
 
 var next_question = false
@@ -32,6 +31,8 @@ func _ready():
 	randomize()
 	next_question = true
 	operator_state = Globals.get("OPERATOR_STATE")
+	get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
+	get_node("HBoxCont/total_score").set_text("Score: " + str(global.score))
 	set_process(true)
 
 func _process(delta):
@@ -41,7 +42,7 @@ func _process(delta):
 		set_button_values()
 		next_question = false
 	
-	if (lives == 0):
+	if (global.lives == 0):
 		global.current_level = 0
 		global.score = 0
 		get_tree().change_scene("res://scenes/lost_screen.tscn")
@@ -120,9 +121,9 @@ func answer_button(num_button):
 		add_score()
 		accumulated_time = 0
 	else:
-		lives -= 1
+		global.lives -= 1
 		get_node("reward").set_text("Bad :(")
-		get_node("HBoxCont/lives").set_text("Lives: " + str(lives))
+		get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
 	
 	num_question += 1
 	next_question = true

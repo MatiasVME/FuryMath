@@ -1,6 +1,7 @@
 extends Node
 
 var score = 0
+var lives = 3
 
 # level system
 var current_level = 1
