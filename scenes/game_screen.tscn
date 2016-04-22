@@ -16,26 +16,28 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="show" type="Label" parent="."]
 
-margin/right = 120.0
-margin/bottom = 111.0
-rect/scale = Vector2( 3, 3 )
+margin/left = 1.0
+margin/top = 165.0
+margin/right = 145.0
+margin/bottom = 212.0
+rect/scale = Vector2( 2.5, 2.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.890625, 0.887907, 0.821045, 1 )
 custom_colors/font_color_shadow = Color( 0.335938, 0.212585, 0.212585, 1 )
+text = "333+333"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-__meta__ = { "_edit_lock_":true }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 
 margin/left = 2.0
-margin/top = 427.0
+margin/top = 452.0
 margin/right = 360.0
 margin/bottom = 641.0
 focus/ignore_mouse = false
@@ -47,7 +49,7 @@ alignment = 0
 [node name="opt1" type="Button" parent="VBoxContainer"]
 
 margin/right = 358.0
-margin/bottom = 50.0
+margin/bottom = 44.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -58,9 +60,9 @@ flat = false
 
 [node name="opt2" type="Button" parent="VBoxContainer"]
 
-margin/top = 54.0
+margin/top = 48.0
 margin/right = 358.0
-margin/bottom = 104.0
+margin/bottom = 92.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -71,9 +73,9 @@ flat = false
 
 [node name="opt3" type="Button" parent="VBoxContainer"]
 
-margin/top = 108.0
+margin/top = 96.0
 margin/right = 358.0
-margin/bottom = 158.0
+margin/bottom = 140.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -84,9 +86,9 @@ flat = false
 
 [node name="opt4" type="Button" parent="VBoxContainer"]
 
-margin/top = 162.0
+margin/top = 144.0
 margin/right = 358.0
-margin/bottom = 214.0
+margin/bottom = 189.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -108,7 +110,60 @@ size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.179443, 0.264492, 0.957031, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "GO!!"
 align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="HBoxCont" type="VBoxContainer" parent="."]
+
+margin/left = 1.0
+margin/top = 1.0
+margin/right = 361.0
+margin/bottom = 123.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="total_score" type="Label" parent="HBoxCont"]
+
+margin/right = 360.0
+margin/bottom = 59.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.988281, 0.609261, 0.166, 1 )
+custom_colors/font_color_shadow = Color( 0.40625, 0.174561, 0.174561, 1 )
+text = "Score: 0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="lives" type="Label" parent="HBoxCont"]
+
+margin/top = 63.0
+margin/right = 360.0
+margin/bottom = 122.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.988235, 0.607843, 0.164706, 1 )
+custom_colors/font_color_shadow = Color( 0.403922, 0.172549, 0.172549, 1 )
+text = "Lives: 3"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

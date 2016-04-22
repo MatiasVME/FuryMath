@@ -6,7 +6,7 @@ var num2
 
 var correct_button = 0
 var correct_answer = 0
-var incorrect_answer = 0
+var lives = 3
 var num_question = 0
 
 var next_question = false
@@ -25,6 +25,15 @@ const DIVISION = 3
 
 var operator_state
 
+# Score system
+var accumulated_time = 0
+
+func _ready():
+	randomize()
+	next_question = true
+	operator_state = Globals.get("OPERATOR_STATE")
+	set_process(true)
+
 func _process(delta):
 	if (next_question):
 		reset_values()
@@ -32,19 +41,19 @@ func _process(delta):
 		set_button_values()
 		next_question = false
 	
-	if (incorrect_answer == 3):
+	if (lives == 0):
+		global.current_level = 0
+		global.score = 0
 		get_tree().change_scene("res://scenes/lost_screen.tscn")
 	elif (num_question == 10):
+		num_question = 0
+		next_level()
 		get_tree().change_scene("res://scenes/win_screen.tscn")
 	
 	haze -= 1 * delta
 	get_node("reward").set_opacity(haze)
-
-func _ready():
-	randomize()
-	next_question = true
-	operator_state = Globals.get("OPERATOR_STATE")
-	set_process(true)
+	
+	accumulated_time += delta
 
 func show_values():
 	if (operator_state == ADDITION):
@@ -57,8 +66,8 @@ func show_values():
 		get_node("show").set_text(str(num1) + " / " + str(num2))
 	
 func reset_values():
-	num1 = int(rand_range(1, 10))
-	num2 = int(rand_range(1, 10))
+	num1 = int(rand_range(global.num_range_min, global.num_range_max))
+	num2 = int(rand_range(global.num_range_min, global.num_range_max))
 	
 func get_result():
 	if (operator_state == ADDITION):
@@ -108,14 +117,54 @@ func reset_alternatives():
 func answer_button(num_button):
 	if (correct_button == num_button):
 		correct_answer += 1
-		get_node("reward").set_text("Great!!")
+		add_score()
+		accumulated_time = 0
 	else:
-		incorrect_answer += 1
+		lives -= 1
 		get_node("reward").set_text("Bad :(")
+		get_node("HBoxCont/lives").set_text("Lives: " + str(lives))
 	
 	num_question += 1
 	next_question = true
 	haze = 1
+
+func add_score():
+	if (accumulated_time < 1):
+		global.score += 10
+		get_node("reward").set_text("10 Points!")
+	elif (accumulated_time < 2):
+		global.score += 9
+		get_node("reward").set_text("9 Points!")
+	elif (accumulated_time < 3):
+		global.score += 8
+		get_node("reward").set_text("8 Points!")
+	elif (accumulated_time < 4):
+		global.score += 7
+		get_node("reward").set_text("7 Points!")
+	elif (accumulated_time < 5):
+		global.score += 6
+		get_node("reward").set_text("6 Points!")
+	elif (accumulated_time < 6):
+		global.score += 5
+		get_node("reward").set_text("5 Points!")
+	elif (accumulated_time < 7):
+		global.score += 4
+		get_node("reward").set_text("4 Points!")
+	elif (accumulated_time < 8):
+		global.score += 3
+		get_node("reward").set_text("3 Points!")
+	elif (accumulated_time < 9):
+		global.score += 2
+		get_node("reward").set_text("2 Points!")
+	elif (accumulated_time > 10):
+		global.score += 1
+		get_node("reward").set_text("1 Points!")
+	get_node("HBoxCont/total_score").set_text("Score: " + str(global.score))
+
+func next_level():
+	global.current_level += 1
+	global.num_range_max += 1
+	global.num_range_min -= 1
 
 func _on_opt1_pressed():
 	answer_button(1)
