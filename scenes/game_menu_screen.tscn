@@ -52,12 +52,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="s_division" type="Node2D" parent="botones"]
+[node name="s_resta" type="Node2D" parent="botones"]
 
-transform/pos = Vector2( 135, 370 )
+transform/pos = Vector2( 135, 120 )
 __meta__ = { "_edit_group_":true }
 
-[node name="division" type="TextureButton" parent="botones/s_division"]
+[node name="resta" type="TextureButton" parent="botones/s_resta"]
 
 margin/left = -50.0
 margin/top = -50.0
@@ -70,20 +70,20 @@ size_flags/vertical = 2
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="botones/s_division/division"]
+[node name="Label" type="Label" parent="botones/s_resta/resta"]
 
-margin/left = 33.0
-margin/top = 14.0
-margin/right = 51.0
-margin/bottom = 51.0
+margin/left = 31.0
+margin/top = 13.0
+margin/right = 49.0
+margin/bottom = 50.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0.695837, 0.824219, 0.0772705, 1 )
-custom_colors/font_color_shadow = Color( 0.21875, 0.171753, 0.171753, 1 )
-text = "/"
+custom_colors/font_color = Color( 0.695312, 0.116791, 0.293059, 1 )
+custom_colors/font_color_shadow = Color( 0.203125, 0.158691, 0.158691, 1 )
+text = "-"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -124,12 +124,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="s_resta" type="Node2D" parent="botones"]
+[node name="s_division" type="Node2D" parent="botones"]
 
-transform/pos = Vector2( 135, 120 )
+transform/pos = Vector2( 135, 370 )
 __meta__ = { "_edit_group_":true }
 
-[node name="resta" type="TextureButton" parent="botones/s_resta"]
+[node name="division" type="TextureButton" parent="botones/s_division"]
 
 margin/left = -50.0
 margin/top = -50.0
@@ -142,20 +142,20 @@ size_flags/vertical = 2
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="botones/s_resta/resta"]
+[node name="Label" type="Label" parent="botones/s_division/division"]
 
-margin/left = 31.0
-margin/top = 13.0
-margin/right = 49.0
-margin/bottom = 50.0
+margin/left = 33.0
+margin/top = 14.0
+margin/right = 51.0
+margin/bottom = 51.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0.695312, 0.116791, 0.293059, 1 )
-custom_colors/font_color_shadow = Color( 0.203125, 0.158691, 0.158691, 1 )
-text = "-"
+custom_colors/font_color = Color( 0.695837, 0.824219, 0.0772705, 1 )
+custom_colors/font_color_shadow = Color( 0.21875, 0.171753, 0.171753, 1 )
+text = "/"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -163,5 +163,11 @@ max_lines_visible = -1
 [connection signal="pressed" from="botones/s_suma/suma" to="." method="_on_suma_pressed"]
 
 [connection signal="pressed" from="botones/s_suma/suma" to="botones" method="_on_suma_pressed"]
+
+[connection signal="pressed" from="botones/s_resta/resta" to="botones" method="_on_resta_pressed"]
+
+[connection signal="pressed" from="botones/s_multiplicacion/multiplicacion" to="botones" method="_on_multiplicacion_pressed"]
+
+[connection signal="pressed" from="botones/s_division/division" to="botones" method="_on_division_pressed"]
 
 

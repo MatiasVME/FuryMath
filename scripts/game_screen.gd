@@ -1,20 +1,30 @@
 
 extends Node2D
 
-var num1 = int(rand_range(1, 10))
-var num2 = int(rand_range(1, 10))
-var correct_button = 0
+var num1
+var num2
 
+var correct_button = 0
 var correct_answer = 0
 var incorrect_answer = 0
 var num_question = 0
 
 var next_question = false
-var haze = 1
+
+var haze = 1 # cambiar la opacidad del label
 
 # Button wrong alternatives
 var alt = [0, 0, 0]
 var alt_index = 0
+
+const OPERATORS = {
+	ADDITION = 0,
+	SUBTRACTION = 1,
+	MULTIPLICATION = 2,
+	DIVISION = 3
+}
+
+var operator_state
 
 func _process(delta):
 	if (next_question):
@@ -73,7 +83,7 @@ func alternative_generator():
 	while (alt[1] == 0 || alt[1] == get_result() || alt[1] == alt[0]):
 		alt[1] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
 		alt[1] = round(alt[1])
-	while (alt[2] == 0 || alt[2] == get_result() || alt[2] == alt[1] || alt[2] == alt[0]):
+	while (alt[2] == 0 || alt[2] == get_result() || alt[2] == alt[1]):
 		alt[2] = rand_range(get_result() - num_nearness, get_result() + num_nearness + 1)
 		alt[2] = round(alt[2])
 

@@ -52,6 +52,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
@@ -64,6 +65,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
@@ -76,6 +78,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
@@ -88,6 +91,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
