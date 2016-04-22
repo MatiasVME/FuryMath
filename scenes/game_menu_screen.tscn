@@ -160,6 +160,37 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="division1" type="TextureButton" parent="botones/s_division"]
+
+margin/left = -50.0
+margin/top = -50.0
+margin/right = 50.0
+margin/bottom = 50.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="botones/s_division/division1"]
+
+margin/left = 33.0
+margin/top = 14.0
+margin/right = 51.0
+margin/bottom = 51.0
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.695837, 0.824219, 0.0772705, 1 )
+custom_colors/font_color_shadow = Color( 0.21875, 0.171753, 0.171753, 1 )
+text = "/"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [connection signal="pressed" from="botones/s_suma/suma" to="." method="_on_suma_pressed"]
 
 [connection signal="pressed" from="botones/s_suma/suma" to="botones" method="_on_suma_pressed"]

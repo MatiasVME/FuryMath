@@ -22,13 +22,17 @@ func _ready():
 	division = get_node("s_division")
 
 func _on_suma_pressed():
+	Globals.set("OPERATOR_STATE", 0)
 	get_tree().change_scene("res://scenes/game_screen.tscn")
 
 func _on_resta_pressed():
-	pass # replace with function body
+	Globals.set("OPERATOR_STATE", 1)
+	get_tree().change_scene("res://scenes/game_screen.tscn")
 
 func _on_multiplicacion_pressed():
-	pass # replace with function body
+	Globals.set("OPERATOR_STATE", 2)
+	get_tree().change_scene("res://scenes/game_screen.tscn")
 
 func _on_division_pressed():
-	pass # replace with function body
+	Globals.set("OPERATOR_STATE", 3)
+	get_tree().change_scene("res://scenes/game_screen.tscn")

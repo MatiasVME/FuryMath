@@ -17,12 +17,11 @@ var haze = 1 # cambiar la opacidad del label
 var alt = [0, 0, 0]
 var alt_index = 0
 
-const OPERATORS = {
-	ADDITION = 0,
-	SUBTRACTION = 1,
-	MULTIPLICATION = 2,
-	DIVISION = 3
-}
+# Operators
+const ADDITION = 0
+const SUBTRACTION = 1
+const MULTIPLICATION = 2
+const DIVISION = 3
 
 var operator_state
 
@@ -44,17 +43,32 @@ func _process(delta):
 func _ready():
 	randomize()
 	next_question = true
+	operator_state = Globals.get("OPERATOR_STATE")
 	set_process(true)
 
 func show_values():
-	get_node("show").set_text(str(num1) + " + " + str(num2))
+	if (operator_state == ADDITION):
+		get_node("show").set_text(str(num1) + " + " + str(num2))
+	elif (operator_state == SUBTRACTION):
+		get_node("show").set_text(str(num1) + " - " + str(num2))
+	elif (operator_state == MULTIPLICATION):
+		get_node("show").set_text(str(num1) + " * " + str(num2))
+	elif (operator_state == DIVISION):
+		get_node("show").set_text(str(num1) + " / " + str(num2))
 	
 func reset_values():
 	num1 = int(rand_range(1, 10))
 	num2 = int(rand_range(1, 10))
 	
 func get_result():
-	return num1 + num2
+	if (operator_state == ADDITION):
+		return num1 + num2
+	elif (operator_state == SUBTRACTION):
+		return num1 - num2
+	elif (operator_state == MULTIPLICATION):
+		return num1 * num2
+	elif (operator_state == DIVISION):
+		return num1 / num2
 	
 func set_button_values():
 	correct_button = int(rand_range(1, 5))
