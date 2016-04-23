@@ -1,8 +1,8 @@
 
 extends Node2D
 
-var num1
-var num2
+var num1 = 0.0
+var num2 = 0.0
 
 var correct_button = 0
 var correct_answer = 0
@@ -29,10 +29,12 @@ var accumulated_time = 0
 
 func _ready():
 	randomize()
+	
 	next_question = true
-	operator_state = Globals.get("OPERATOR_STATE")
+	
 	get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
 	get_node("HBoxCont/total_score").set_text("Score: " + str(global.score))
+	
 	set_process(true)
 
 func _process(delta):
@@ -57,27 +59,36 @@ func _process(delta):
 	accumulated_time += delta
 
 func show_values():
-	if (operator_state == ADDITION):
+	if (global.operator_state == global.ADDITION):
 		get_node("show").set_text(str(num1) + " + " + str(num2))
-	elif (operator_state == SUBTRACTION):
+	elif (global.operator_state == global.SUBTRACTION):
 		get_node("show").set_text(str(num1) + " - " + str(num2))
-	elif (operator_state == MULTIPLICATION):
+	elif (global.operator_state == global.MULTIPLICATION):
 		get_node("show").set_text(str(num1) + " * " + str(num2))
-	elif (operator_state == DIVISION):
+	elif (global.operator_state == global.DIVISION):
 		get_node("show").set_text(str(num1) + " / " + str(num2))
 	
 func reset_values():
-	num1 = int(rand_range(global.num_range_min, global.num_range_max))
-	num2 = int(rand_range(global.num_range_min, global.num_range_max))
+	if (global.operator_state != global.DIVISION):
+		num1 = int(rand_range(global.num_range_min, global.num_range_max))
+		num2 = int(rand_range(global.num_range_min, global.num_range_max))
+	else:
+		num1 = int(rand_range(global.num_range_min, global.num_range_max))
+		num2 = int(rand_range(global.num_range_min, global.num_range_max))
+		
+		if (num2 > num1):
+			var aux = num2
+			num2 = num1
+			num1 = aux
 	
 func get_result():
-	if (operator_state == ADDITION):
+	if (global.operator_state == global.ADDITION):
 		return num1 + num2
-	elif (operator_state == SUBTRACTION):
+	elif (global.operator_state == global.SUBTRACTION):
 		return num1 - num2
-	elif (operator_state == MULTIPLICATION):
+	elif (global.operator_state == global.MULTIPLICATION):
 		return num1 * num2
-	elif (operator_state == DIVISION):
+	elif (global.operator_state == global.DIVISION):
 		return num1 / num2
 	
 func set_button_values():
@@ -165,7 +176,9 @@ func add_score():
 func next_level():
 	global.current_level += 1
 	global.num_range_max += 1
-	global.num_range_min -= 1
+
+	if (global.operator_state != global.DIVISION):
+		global.num_range_min -= 1
 
 func _on_opt1_pressed():
 	answer_button(1)
