@@ -130,7 +130,7 @@ func answer_button(num_button):
 	haze = 1
 
 func add_score():
-	if (accumulated_time < 1):
+	if (accumulated_time <= 1.5):
 		global.score += 10
 		get_node("reward").set_text("10 Points!")
 	elif (accumulated_time < 2):
