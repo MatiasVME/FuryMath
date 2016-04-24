@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/lost_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/images/you-lost.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,5 +19,25 @@ __meta__ = { "_edit_lock_":true }
 
 transform/pos = Vector2( 180, 320 )
 texture = ExtResource( 3 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="score" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 1.0
+margin/top = 95.0
+margin/right = 359.0
+margin/bottom = 190.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.14267, 0.730469, 0.165631, 1 )
+custom_colors/font_color_shadow = Color( 0.238281, 0.159164, 0.159164, 1 )
+text = "Score"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

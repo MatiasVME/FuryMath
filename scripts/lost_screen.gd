@@ -11,5 +11,7 @@ func _process(delta):
 		get_tree().change_scene("res://scenes/menu_screen.tscn")
 
 func _ready():
+	get_node("score").set_text("Score: " + str(global.score))
+	global.score = 0
 	set_process(true)
 

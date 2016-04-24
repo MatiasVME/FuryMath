@@ -46,7 +46,6 @@ func _process(delta):
 	
 	if (global.lives == 0):
 		global.current_level = 0
-		global.score = 0
 		get_tree().change_scene("res://scenes/lost_screen.tscn")
 	elif (num_question == 10):
 		num_question = 0
