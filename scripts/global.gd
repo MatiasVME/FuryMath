@@ -14,3 +14,7 @@ var operator_state = 0
 var current_level = 1
 var num_range_max = 6
 var num_range_min = 1
+
+# Progress bar
+var current_progress = 100
+var lost_time = 1

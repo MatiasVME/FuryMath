@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=3]
+[ext_resource path="res://assets/sounds/Downer01.smp" type="Sample" id=4]
+[ext_resource path="res://assets/sounds/Rise03.smp" type="Sample" id=5]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/bad = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/good = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,14 +23,14 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="show" type="Label" parent="."]
 
-margin/left = 1.0
-margin/top = 165.0
-margin/right = 145.0
-margin/bottom = 212.0
 rect/scale = Vector2( 2.5, 2.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 1.0
+margin/top = 165.0
+margin/right = 145.0
+margin/bottom = 212.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.890625, 0.887907, 0.821045, 1 )
 custom_colors/font_color_shadow = Color( 0.335938, 0.212585, 0.212585, 1 )
@@ -37,77 +44,83 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 
-margin/left = 2.0
-margin/top = 452.0
-margin/right = 360.0
-margin/bottom = 641.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 398.0
+margin/right = 360.0
+margin/bottom = 641.0
 alignment = 0
+__meta__ = { "_edit_lock_":true }
 
 [node name="opt1" type="Button" parent="VBoxContainer"]
 
-margin/right = 358.0
-margin/bottom = 44.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 358.0
+margin/bottom = 57.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt2" type="Button" parent="VBoxContainer"]
 
-margin/top = 48.0
-margin/right = 358.0
-margin/bottom = 92.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 61.0
+margin/right = 358.0
+margin/bottom = 118.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt3" type="Button" parent="VBoxContainer"]
 
-margin/top = 96.0
-margin/right = 358.0
-margin/bottom = 140.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 122.0
+margin/right = 358.0
+margin/bottom = 179.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt4" type="Button" parent="VBoxContainer"]
 
-margin/top = 144.0
-margin/right = 358.0
-margin/bottom = 189.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 183.0
+margin/right = 358.0
+margin/bottom = 243.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="reward" type="Label" parent="."]
 
-margin/left = 1.0
-margin/top = 339.0
-margin/right = 181.0
-margin/bottom = 376.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 1.0
+margin/top = 294.0
+margin/right = 181.0
+margin/bottom = 331.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.179443, 0.264492, 0.957031, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -116,29 +129,29 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-__meta__ = { "_edit_lock_":true }
 
 [node name="HBoxCont" type="VBoxContainer" parent="."]
 
-margin/left = 1.0
-margin/top = 1.0
-margin/right = 361.0
-margin/bottom = 123.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 39.0
+margin/right = 361.0
+margin/bottom = 117.0
 alignment = 0
-__meta__ = { "_edit_lock_":true }
 
 [node name="total_score" type="Label" parent="HBoxCont"]
 
-margin/right = 360.0
-margin/bottom = 59.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 360.0
+margin/bottom = 37.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.988281, 0.609261, 0.166, 1 )
 custom_colors/font_color_shadow = Color( 0.40625, 0.174561, 0.174561, 1 )
@@ -152,13 +165,14 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="lives" type="Label" parent="HBoxCont"]
 
-margin/top = 63.0
-margin/right = 360.0
-margin/bottom = 122.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 41.0
+margin/right = 360.0
+margin/bottom = 78.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.988235, 0.607843, 0.164706, 1 )
 custom_colors/font_color_shadow = Color( 0.403922, 0.172549, 0.172549, 1 )
@@ -169,6 +183,39 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 __meta__ = { "_edit_lock_":true }
+
+[node name="time_to_lost" type="ProgressBar" parent="."]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 515.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.388235, 0.270588, 0.756863, 1 )
+custom_colors/font_color_shadow = Color( 0.109375, 0.0828857, 0.0828857, 1 )
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = true
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
 
 [connection signal="pressed" from="VBoxContainer/opt1" to="." method="_on_opt1_pressed"]
 

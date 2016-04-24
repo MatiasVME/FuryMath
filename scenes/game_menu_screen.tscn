@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/botones.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/buttons/circle-button.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=4]
+[ext_resource path="res://assets/sounds/Coin01.smp" type="Sample" id=5]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/coin = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,28 +27,28 @@ __meta__ = { "_edit_group_":true }
 
 [node name="suma" type="TextureButton" parent="botones/s_suma"]
 
-margin/left = -50.0
-margin/top = -50.0
-margin/right = 50.0
-margin/bottom = 50.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -50.0
+margin/top = -50.0
+margin/right = 50.0
+margin/bottom = 50.0
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 __meta__ = { "_edit_group_":true }
 
 [node name="Label" type="Label" parent="botones/s_suma/suma"]
 
-margin/left = 31.0
-margin/top = 13.0
-margin/right = 49.0
-margin/bottom = 50.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 31.0
+margin/top = 13.0
+margin/right = 49.0
+margin/bottom = 50.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.270742, 0.193604, 0.953125, 1 )
 custom_colors/font_color_shadow = Color( 0.199219, 0.15097, 0.15097, 1 )
@@ -59,27 +64,27 @@ __meta__ = { "_edit_group_":true }
 
 [node name="resta" type="TextureButton" parent="botones/s_resta"]
 
-margin/left = -50.0
-margin/top = -50.0
-margin/right = 50.0
-margin/bottom = 50.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -50.0
+margin/top = -50.0
+margin/right = 50.0
+margin/bottom = 50.0
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="botones/s_resta/resta"]
 
-margin/left = 31.0
-margin/top = 13.0
-margin/right = 49.0
-margin/bottom = 50.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 31.0
+margin/top = 13.0
+margin/right = 49.0
+margin/bottom = 50.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.695312, 0.116791, 0.293059, 1 )
 custom_colors/font_color_shadow = Color( 0.203125, 0.158691, 0.158691, 1 )
@@ -95,27 +100,27 @@ __meta__ = { "_edit_group_":true }
 
 [node name="multiplicacion" type="TextureButton" parent="botones/s_multiplicacion"]
 
-margin/left = -50.0
-margin/top = -50.0
-margin/right = 50.0
-margin/bottom = 50.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -50.0
+margin/top = -50.0
+margin/right = 50.0
+margin/bottom = 50.0
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="botones/s_multiplicacion/multiplicacion"]
 
-margin/left = 31.0
-margin/top = 20.0
-margin/right = 49.0
-margin/bottom = 57.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 31.0
+margin/top = 20.0
+margin/right = 49.0
+margin/bottom = 57.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.133896, 0.761719, 0.202564, 1 )
 custom_colors/font_color_shadow = Color( 0.175781, 0.157242, 0.157242, 1 )
@@ -131,27 +136,27 @@ __meta__ = { "_edit_group_":true }
 
 [node name="division" type="TextureButton" parent="botones/s_division"]
 
-margin/left = -50.0
-margin/top = -50.0
-margin/right = 50.0
-margin/bottom = 50.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -50.0
+margin/top = -50.0
+margin/right = 50.0
+margin/bottom = 50.0
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="botones/s_division/division"]
 
-margin/left = 33.0
-margin/top = 14.0
-margin/right = 51.0
-margin/bottom = 51.0
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+margin/left = 33.0
+margin/top = 14.0
+margin/right = 51.0
+margin/bottom = 51.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.695837, 0.824219, 0.0772705, 1 )
 custom_colors/font_color_shadow = Color( 0.21875, 0.171753, 0.171753, 1 )
@@ -159,6 +164,18 @@ text = "/"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="sound" type="SamplePlayer2D" parent="botones"]
+
+transform/pos = Vector2( -107.755, -102.555 )
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
 
 [connection signal="pressed" from="botones/s_suma/suma" to="." method="_on_suma_pressed"]
 

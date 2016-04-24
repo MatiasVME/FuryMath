@@ -18,4 +18,5 @@ func _process(delta):
 
 func _ready():
 	one_time = true
+	get_node("sound").play("win")
 	set_process(true)

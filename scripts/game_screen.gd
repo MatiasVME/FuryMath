@@ -29,7 +29,6 @@ var accumulated_time = 0
 
 func _ready():
 	randomize()
-	
 	next_question = true
 	
 	get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
@@ -44,7 +43,7 @@ func _process(delta):
 		set_button_values()
 		next_question = false
 	
-	if (global.lives == 0):
+	if (global.lives == 0 || get_node("time_to_lost").get_value() == 0):
 		global.current_level = 0
 		get_tree().change_scene("res://scenes/lost_screen.tscn")
 	elif (num_question == 10):
@@ -56,6 +55,16 @@ func _process(delta):
 	get_node("reward").set_opacity(haze)
 	
 	accumulated_time += delta
+	
+	# Si el nivel es menor que x la barra no esta habilitada
+	if (global.current_level <= 4):
+		get_node("time_to_lost").set_opacity(0)
+	
+	# Si el nivel es mayor a x se empieza a perder tiempo
+	if (global.current_level >= 4):
+		var value = get_node("time_to_lost").get_value()
+		value -= global.lost_time * delta
+		get_node("time_to_lost").set_value(value)
 
 func show_values():
 	if (global.operator_state == global.ADDITION):
@@ -130,10 +139,18 @@ func answer_button(num_button):
 		correct_answer += 1
 		add_score()
 		accumulated_time = 0
+		
+		var value = get_node("time_to_lost").get_value()
+		value += value + 10
+		get_node("time_to_lost").set_value(value)
+		
+		get_node("sounds").play("good")
 	else:
 		global.lives -= 1
 		get_node("reward").set_text("Bad :(")
 		get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
+		
+		get_node("sounds").play("bad")
 	
 	num_question += 1
 	next_question = true
@@ -178,6 +195,9 @@ func next_level():
 
 	if (global.operator_state != global.DIVISION):
 		global.num_range_min -= 1
+
+	if (global.lost_time <= 6 && global.current_level >= 5):
+		global.lost_time += 0.5
 
 func _on_opt1_pressed():
 	answer_button(1)

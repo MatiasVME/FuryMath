@@ -12,6 +12,10 @@ func _process(delta):
 
 func _ready():
 	get_node("score").set_text("Score: " + str(global.score))
+	get_node("sound").play("game-over")
 	global.score = 0
+	global.current_level = 1
+	global.num_range_max = 6
+	global.num_range_min = 1
 	set_process(true)
 

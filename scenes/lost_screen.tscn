@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/lost_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/images/you-lost.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=4]
+[ext_resource path="res://assets/sounds/game-over.smp" type="Sample" id=5]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/game-over = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,5 +44,16 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="sound" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
 
 
