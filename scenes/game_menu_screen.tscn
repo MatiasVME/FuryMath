@@ -1,14 +1,9 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/botones.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/buttons/circle-button.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=4]
-[ext_resource path="res://assets/sounds/Coin01.smp" type="Sample" id=5]
-
-[sub_resource type="SampleLibrary" id=1]
-
-samples/coin = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="Node2D" type="Node2D"]
 
@@ -164,18 +159,6 @@ text = "/"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="sound" type="SamplePlayer2D" parent="botones"]
-
-transform/pos = Vector2( -107.755, -102.555 )
-params/volume_db = 0.0
-params/pitch_scale = 1.0
-params/attenuation/min_distance = 1.0
-params/attenuation/max_distance = 2048.0
-params/attenuation/distance_exp = 1.0
-config/polyphony = 1
-config/samples = SubResource( 1 )
-config/pitch_random = 0.0
 
 [connection signal="pressed" from="botones/s_suma/suma" to="." method="_on_suma_pressed"]
 
