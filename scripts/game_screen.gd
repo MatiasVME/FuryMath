@@ -27,9 +27,16 @@ var operator_state
 # Score system
 var accumulated_time = 0
 
+# Los niveles superiores o igual a LEVEL_WITH_TIME tienen tiempo
+const LEVEL_WITH_TIME = 5
+
+# Hacer que algunas acciones se ejecuten solo una vez
+var one_time
+
 func _ready():
 	randomize()
 	next_question = true
+	one_time = true
 	
 	get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
 	get_node("HBoxCont/total_score").set_text("Score: " + str(global.score))
@@ -43,13 +50,21 @@ func _process(delta):
 		set_button_values()
 		next_question = false
 	
-	if (global.lives == 0 || get_node("time_to_lost").get_value() == 0):
-		global.current_level = 0
+	if (global.lives == 0):
 		get_tree().change_scene("res://scenes/lost_screen.tscn")
+	elif (get_node("time_to_lost").get_value() == 0):
+		global.lives = global.lives - 1
+		get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
+		get_node("time_to_lost").set_value(100)
 	elif (num_question == 10):
 		num_question = 0
 		next_level()
 		get_tree().change_scene("res://scenes/win_screen.tscn")
+	elif (global.current_level % 5 == 0 && one_time):
+		get_node("reward").set_text("New Life!")
+		global.lives += 1
+		get_node("HBoxCont/lives").set_text("Lives: " + str(global.lives))
+		one_time = false
 	
 	haze -= 1 * delta
 	get_node("reward").set_opacity(haze)
@@ -57,11 +72,11 @@ func _process(delta):
 	accumulated_time += delta
 	
 	# Si el nivel es menor que x la barra no esta habilitada
-	if (global.current_level <= 4):
+	if (global.current_level < LEVEL_WITH_TIME):
 		get_node("time_to_lost").set_opacity(0)
 	
-	# Si el nivel es mayor a x se empieza a perder tiempo
-	if (global.current_level >= 4):
+	# Si el nivel es mayor o igual a x se empieza a perder tiempo
+	if (global.current_level >= LEVEL_WITH_TIME):
 		var value = get_node("time_to_lost").get_value()
 		value -= global.lost_time * delta
 		get_node("time_to_lost").set_value(value)
@@ -141,7 +156,7 @@ func answer_button(num_button):
 		accumulated_time = 0
 		
 		var value = get_node("time_to_lost").get_value()
-		value += value + 10
+		value += 10
 		get_node("time_to_lost").set_value(value)
 		
 		get_node("sounds").play("good")
@@ -187,6 +202,7 @@ func add_score():
 	elif (accumulated_time > 10):
 		global.score += 1
 		get_node("reward").set_text("1 Points!")
+	
 	get_node("HBoxCont/total_score").set_text("Score: " + str(global.score))
 
 func next_level():
@@ -196,7 +212,7 @@ func next_level():
 	if (global.operator_state != global.DIVISION):
 		global.num_range_min -= 1
 
-	if (global.lost_time <= 6 && global.current_level >= 5):
+	if (global.lost_time <= 6 && global.current_level > LEVEL_WITH_TIME):
 		global.lost_time += 0.5
 
 func _on_opt1_pressed():

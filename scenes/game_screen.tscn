@@ -8,8 +8,8 @@
 
 [sub_resource type="SampleLibrary" id=1]
 
-samples/bad = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 samples/good = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/bad = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,14 +23,14 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="show" type="Label" parent="."]
 
-rect/scale = Vector2( 2.5, 2.5 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
 margin/left = 1.0
 margin/top = 165.0
 margin/right = 145.0
 margin/bottom = 212.0
+rect/scale = Vector2( 2.5, 2.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.890625, 0.887907, 0.821045, 1 )
 custom_colors/font_color_shadow = Color( 0.335938, 0.212585, 0.212585, 1 )
@@ -44,83 +44,78 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
 margin/left = 2.0
 margin/top = 398.0
 margin/right = 360.0
 margin/bottom = 641.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
 alignment = 0
 __meta__ = { "_edit_lock_":true }
 
 [node name="opt1" type="Button" parent="VBoxContainer"]
 
+margin/right = 358.0
+margin/bottom = 57.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 358.0
-margin/bottom = 57.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt2" type="Button" parent="VBoxContainer"]
 
+margin/top = 61.0
+margin/right = 358.0
+margin/bottom = 118.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 61.0
-margin/right = 358.0
-margin/bottom = 118.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt3" type="Button" parent="VBoxContainer"]
 
+margin/top = 122.0
+margin/right = 358.0
+margin/bottom = 179.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 122.0
-margin/right = 358.0
-margin/bottom = 179.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="opt4" type="Button" parent="VBoxContainer"]
 
+margin/top = 183.0
+margin/right = 358.0
+margin/bottom = 243.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 183.0
-margin/right = 358.0
-margin/bottom = 243.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 flat = false
 
 [node name="reward" type="Label" parent="."]
 
-rect/scale = Vector2( 2, 2 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
 margin/left = 1.0
 margin/top = 294.0
 margin/right = 181.0
 margin/bottom = 331.0
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.179443, 0.264492, 0.957031, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -132,26 +127,24 @@ max_lines_visible = -1
 
 [node name="HBoxCont" type="VBoxContainer" parent="."]
 
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
 margin/left = 1.0
 margin/top = 39.0
 margin/right = 361.0
 margin/bottom = 117.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
 alignment = 0
 
 [node name="total_score" type="Label" parent="HBoxCont"]
 
+margin/right = 360.0
+margin/bottom = 37.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 360.0
-margin/bottom = 37.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.988281, 0.609261, 0.166, 1 )
 custom_colors/font_color_shadow = Color( 0.40625, 0.174561, 0.174561, 1 )
@@ -165,14 +158,13 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="lives" type="Label" parent="HBoxCont"]
 
+margin/top = 41.0
+margin/right = 360.0
+margin/bottom = 78.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 41.0
-margin/right = 360.0
-margin/bottom = 78.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.988235, 0.607843, 0.164706, 1 )
 custom_colors/font_color_shadow = Color( 0.403922, 0.172549, 0.172549, 1 )
@@ -186,14 +178,12 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="time_to_lost" type="ProgressBar" parent="."]
 
+margin/right = 515.0
+margin/bottom = 40.0
 rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 515.0
-margin/bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.388235, 0.270588, 0.756863, 1 )
 custom_colors/font_color_shadow = Color( 0.109375, 0.0828857, 0.0828857, 1 )
