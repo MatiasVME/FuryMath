@@ -1,7 +1,8 @@
 
 extends Node2D
 
-var TOTAL_TIME = 3
+const TOTAL_TIME = 3
+
 var accumulated_time = 0
 var accumulated_opacity = 1
 

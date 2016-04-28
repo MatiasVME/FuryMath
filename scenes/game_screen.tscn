@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/game_screen.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/images/game-bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=3]
 [ext_resource path="res://assets/sounds/Downer01.smp" type="Sample" id=4]
 [ext_resource path="res://assets/sounds/Rise03.smp" type="Sample" id=5]
@@ -46,18 +46,17 @@ __meta__ = { "_edit_lock_":true }
 
 margin/left = 2.0
 margin/top = 398.0
-margin/right = 360.0
+margin/right = 358.0
 margin/bottom = 641.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 alignment = 0
-__meta__ = { "_edit_lock_":true }
 
 [node name="opt1" type="Button" parent="VBoxContainer"]
 
-margin/right = 358.0
+margin/right = 356.0
 margin/bottom = 57.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -70,7 +69,7 @@ flat = false
 [node name="opt2" type="Button" parent="VBoxContainer"]
 
 margin/top = 61.0
-margin/right = 358.0
+margin/right = 356.0
 margin/bottom = 118.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -83,7 +82,7 @@ flat = false
 [node name="opt3" type="Button" parent="VBoxContainer"]
 
 margin/top = 122.0
-margin/right = 358.0
+margin/right = 356.0
 margin/bottom = 179.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -96,7 +95,7 @@ flat = false
 [node name="opt4" type="Button" parent="VBoxContainer"]
 
 margin/top = 183.0
-margin/right = 358.0
+margin/right = 356.0
 margin/bottom = 243.0
 focus/ignore_mouse = false
 focus/stop_mouse = true

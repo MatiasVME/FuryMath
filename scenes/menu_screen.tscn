@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/menu_screen.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/menu-bg.jpg" type="Texture" id=2]
-[ext_resource path="res://assets/images/buttons/start-button.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/buttons/start-toggled-button.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/menu-bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/buttons/start.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/buttons/start_touch-hover.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/buttons/stats-button.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/buttons/stats-toggled-button.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/buttons/credits-button.png" type="Texture" id=7]
-[ext_resource path="res://assets/images/buttons/credits-toggled-button.png" type="Texture" id=8]
-[ext_resource path="res://assets/images/buttons/exit-button.png" type="Texture" id=9]
-[ext_resource path="res://assets/images/buttons/exit-toggled-button.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/buttons/credits.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/buttons/credits_touch-hover.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/buttons/exit.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/buttons/exit_touch-hover.png" type="Texture" id=10]
 [ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=11]
 
 [node name="Node2D" type="Node2D"]
@@ -25,29 +25,30 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="StartButton" type="TextureButton" parent="."]
 
+margin/left = 82.0
+margin/top = 210.0
+margin/right = 283.0
+margin/bottom = 346.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 79.0
-margin/top = 271.0
-margin/right = 281.0
-margin/bottom = 324.0
 toggle_mode = false
 textures/normal = ExtResource( 3 )
 textures/pressed = ExtResource( 4 )
+params/scale = Vector2( 0.8, 0.8 )
 
 [node name="StatsButton" type="TextureButton" parent="."]
 
 visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 margin/left = -389.0
 margin/top = 221.0
 margin/right = -187.0
 margin/bottom = 274.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 toggle_mode = false
 textures/normal = ExtResource( 5 )
 textures/pressed = ExtResource( 6 )
@@ -55,42 +56,44 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 
+margin/left = 62.0
+margin/top = 351.0
+margin/right = 297.2
+margin/bottom = 485.4
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 82.0
-margin/top = 378.0
-margin/right = 284.0
-margin/bottom = 431.0
 toggle_mode = false
 textures/normal = ExtResource( 7 )
 textures/pressed = ExtResource( 8 )
+params/scale = Vector2( 0.8, 0.8 )
 
 [node name="ExitButton" type="TextureButton" parent="."]
 
+margin/left = 85.0
+margin/top = 497.0
+margin/right = 279.4
+margin/bottom = 623.4
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 80.0
-margin/top = 490.0
-margin/right = 282.0
-margin/bottom = 543.0
 toggle_mode = false
 textures/normal = ExtResource( 9 )
 textures/pressed = ExtResource( 10 )
+params/scale = Vector2( 0.8, 0.8 )
 
 [node name="logo" type="Label" parent="."]
 
-rect/scale = Vector2( 4, 4 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
 margin/left = 2.0
 margin/top = -3.0
 margin/right = 92.0
 margin/bottom = 59.0
+rect/scale = Vector2( 4, 4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.778809, 0.781956, 0.859375, 1 )
 text = "FM"

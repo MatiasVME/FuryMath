@@ -212,7 +212,7 @@ func next_level():
 	if (global.operator_state != global.DIVISION):
 		global.num_range_min -= 1
 
-	if (global.lost_time <= 6 && global.current_level > LEVEL_WITH_TIME):
+	if (global.lost_time <= 5 && global.current_level > LEVEL_WITH_TIME):
 		global.lost_time += 0.5
 
 func _on_opt1_pressed():
