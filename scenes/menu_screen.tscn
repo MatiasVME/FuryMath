@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/menu_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/menu-bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/buttons/start.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/buttons/start_touch-hover.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/buttons/stats-button.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/buttons/stats-toggled-button.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/buttons/credits.png" type="Texture" id=7]
-[ext_resource path="res://assets/images/buttons/credits_touch-hover.png" type="Texture" id=8]
-[ext_resource path="res://assets/images/buttons/exit.png" type="Texture" id=9]
-[ext_resource path="res://assets/images/buttons/exit_touch-hover.png" type="Texture" id=10]
-[ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=11]
+[ext_resource path="res://assets/images/buttons/credits.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/buttons/credits_touch-hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/buttons/exit.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/buttons/exit_touch-hover.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/buttons/stats_button.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/Candal.fnt" type="Font" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,22 +37,6 @@ textures/normal = ExtResource( 3 )
 textures/pressed = ExtResource( 4 )
 params/scale = Vector2( 0.8, 0.8 )
 
-[node name="StatsButton" type="TextureButton" parent="."]
-
-visibility/visible = false
-margin/left = -389.0
-margin/top = 221.0
-margin/right = -187.0
-margin/bottom = 274.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-__meta__ = { "_edit_lock_":true }
-
 [node name="CreditsButton" type="TextureButton" parent="."]
 
 margin/left = 62.0
@@ -65,8 +48,8 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 7 )
-textures/pressed = ExtResource( 8 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
 params/scale = Vector2( 0.8, 0.8 )
 
 [node name="ExitButton" type="TextureButton" parent="."]
@@ -80,9 +63,23 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 9 )
-textures/pressed = ExtResource( 10 )
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
 params/scale = Vector2( 0.8, 0.8 )
+
+[node name="StatsButton" type="TextureButton" parent="."]
+
+margin/left = 297.0
+margin/top = 12.0
+margin/right = 347.0
+margin/bottom = 62.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 9 )
+params/scale = Vector2( 0.5, 0.5 )
 
 [node name="logo" type="Label" parent="."]
 
@@ -94,7 +91,7 @@ rect/scale = Vector2( 4, 4 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 11 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0.778809, 0.781956, 0.859375, 1 )
 text = "FM"
 align = 1
@@ -106,10 +103,10 @@ __meta__ = { "_edit_lock_":true }
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 
-[connection signal="pressed" from="StatsButton" to="." method="_on_StatsButton_pressed"]
-
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[connection signal="pressed" from="StatsButton" to="." method="_on_StatsButton_pressed"]
 
 

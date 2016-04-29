@@ -18,9 +18,7 @@ var num_range_min = 1
 # Progress bar
 var lost_time = 1
 
-# Score file
-var file = File.new()
-var save_path = "user://score.txt"
+var score_path = "user://score.txt"
 
 func reset_values():
 	score = 0

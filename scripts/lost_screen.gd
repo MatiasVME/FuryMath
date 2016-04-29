@@ -3,7 +3,12 @@ extends Node2D
 
 var haze = 1
 
-var fscore = [0,0,0,0]
+var score_path = "user://score.txt"
+
+var add
+var sub
+var mult
+var div
 
 func _process(delta):
 	haze -= 0.5 * delta
@@ -16,44 +21,54 @@ func _ready():
 	get_node("score").set_text("Score: " + str(global.score))
 	get_node("sound").play("game-over")
 
-	file_init_values()
-	file_get_values()
-	file_set_values()
-
+	load_score()
+	save_score()
+	
 	global.reset_values()
 	set_process(true)
-
-func file_init_values():
-	if (global.file.file_exists(global.save_path) == false):
-		global.file.open_encrypted_with_pass(global.save_path, global.file.WRITE, OS.get_unique_ID())
-		
-		var general_score = [3, 4, 1, 2]
-		global.file.store_var(general_score)
-		
-		global.file.close()
-
-func file_get_values():
-	global.file.open_encrypted_with_pass(global.save_path, global.file.READ, OS.get_unique_ID())
-	fscore = global.file.get_var()
 	
-#	print(fscore[0])
-#	print(fscore[1])
-#	print(fscore[2])
-#	print(fscore[3])
+func save_score():
+	var save_score = File.new()
+	save_score.open(score_path, save_score.WRITE)
 	
-	global.file.close()
-
-func file_set_values():
-	global.file.open_encrypted_with_pass(global.save_path, global.file.WRITE, OS.get_unique_ID())
+	var score_value = get_node("score").get_text()
 	
-	if (global.operator_state == global.SUBTRACTION):
-		if (fscore[global.SUBTRACTION] < global.score):
-			fscore[global.SUBTRACTION] = global.score
-			global.file.set_var(fscore)
+	if (global.operator_state == global.ADDITION && global.score > add):
+		save_score.store_line(str(global.score))
+		save_score.store_line(str(sub))
+		save_score.store_line(str(mult))
+		save_score.store_line(str(div))
+	elif (global.operator_state == global.SUBTRACTION && global.score > sub):
+		save_score.store_line(str(add))
+		save_score.store_line(str(global.score))
+		save_score.store_line(str(mult))
+		save_score.store_line(str(div))
+	elif (global.operator_state == global.MULTIPLICATION && global.score > mult):
+		save_score.store_line(str(add))
+		save_score.store_line(str(sub))
+		save_score.store_line(str(global.score))
+		save_score.store_line(str(div))
+	elif (global.operator_state == global.DIVISION && global.score > div):
+		save_score.store_line(str(add))
+		save_score.store_line(str(sub))
+		save_score.store_line(str(mult))
+		save_score.store_line(str(global.score))
+	else:
+		save_score.store_line(str(add))
+		save_score.store_line(str(sub))
+		save_score.store_line(str(mult))
+		save_score.store_line(str(div))
 	
-	global.file.close()
-
-	print(fscore[0])
-	print(fscore[1])
-	print(fscore[2])
-	print(fscore[3])
+	save_score.close()
+	
+func load_score():
+	var save_score = File.new()
+	
+	save_score.open(score_path, save_score.READ)
+	
+	add = int(save_score.get_line())
+	sub = int(save_score.get_line())
+	mult = int(save_score.get_line())
+	div = int(save_score.get_line())
+	
+	save_score.close()
